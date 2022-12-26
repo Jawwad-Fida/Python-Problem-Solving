@@ -14,7 +14,23 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        pass
+        # list gets converted to 
+        
+        # Initialize 2 pointers at beginning of list
+        hare = head
+        turtle = head
+        
+        # Loop as long as these are valid
+        while hare and turtle and hare.next:
+            hare = hare.next.next # move 2 steps forward
+            turtle = turtle.next # move 1 steps forward
+            
+            # cycle exists
+            if turtle == hare:
+                return True
+        
+        # cycle does not exist - when hare.next becomes null 
+        return False
 
 
         
