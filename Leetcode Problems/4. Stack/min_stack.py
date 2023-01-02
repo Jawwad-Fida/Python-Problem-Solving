@@ -4,28 +4,37 @@ Leetcode: 155. Min Stack
 https://leetcode.com/problems/min-stack/
 """
 
-from typing import List
+from collections import deque
 
 class MinStack:
 
     def __init__(self):
-        pass
+        self.st = deque()
         
 
     def push(self, val: int) -> None:
-        pass
+        curMin = self.getMin()
+        if curMin is None or val < curMin:
+            curMin = val
+        self.st.append((val, curMin))
         
 
     def pop(self) -> None:
-        pass
+        return self.st.pop()
         
 
     def top(self) -> int:
-        pass
+        if self.st:
+            return self.st[-1][0]
+        else:
+            return None
         
 
     def getMin(self) -> int:
-        pass
+        if self.st:
+            return self.st[-1][1]
+        else:
+            return None
         
 
 
