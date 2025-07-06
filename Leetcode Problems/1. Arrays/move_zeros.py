@@ -11,19 +11,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        j = 0 # set a counter to beginning of list
-        for num in nums:
-            if num!=0: # if the number is not zero, place it at the counter
-                nums[j] = num
-                j = j + 1
-                
-        # loop break, now j is at an index
-                
-        # loop through the rest of the list and set the rest to zero
-        for x in range(j,len(nums)):
-            nums[x] = 0
+        count = 0
+        # Move all non-zero elements to the front
+        # and count the number of non-zero elements
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[count] = nums[i]
+                count = count + 1
         
         print(nums)
+        print(count)
+        # Fill the remaining elements with 0
+        for i in range(count, len(nums)):
+            nums[i] = 0
+            
+        print(nums)
+        
 
 s = Solution()
-s.moveZeroes([0,1,0,3,12])
+s.moveZeroes([0,0,1])
+# s.moveZeroes([0,1,0,3,12])
